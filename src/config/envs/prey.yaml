@@ -1,0 +1,15 @@
+env: prey
+
+env_args:
+  map_name: "various_all"
+  entity_scheme: True
+  episode_limit: 50
+  seed: null
+
+test_greedy: True
+test_nepisode: 32
+test_interval: 10000
+log_interval: 10000
+runner_log_interval: 10000
+learner_log_interval: 10000
+t_max: 3050000

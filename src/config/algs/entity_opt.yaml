@@ -1,0 +1,45 @@
+# --- QMIX specific parameters ---
+
+# use epsilon greedy action selector
+action_selector: "epsilon_greedy"
+epsilon_start: 1.0
+epsilon_finish: 0.05
+epsilon_anneal_time: 500000
+
+runner: "episode"
+mac: "entity_mac"
+entity_last_action: True
+
+buffer_size: 5000
+
+# update the target network every {} episodes
+target_update_interval: 200
+
+# use the Q_Learner to train
+agent_output_type: "q"
+learner: "entity_opt_q_learner"
+optimizer: 'rmsprop'
+double_q: True
+
+mixer: "entity_opt_qmix"
+mix_emb_dim: 32 # embedding dimension of transformer
+mix_n_heads: 4 # head number of transformer
+mix_n_blocks: 2 # block number of transformer
+scale_q: True
+
+# --- Agent parameters ---
+agent: "entity_opt_agent"
+rnn_hidden_dim: 64 # Size of hidden state for default rnn agent
+obs_agent_id: False # Include the agent's one_hot id in the observation
+obs_last_action: False # Include the agent's last action (one_hot) in the observation
+
+# --- Transformer parameters. Should be set manually. ---
+emb_dim: 32 # embedding dimension of transformer
+n_heads: 4 # head number of transformer
+n_blocks: 2 # block number of transformer
+mixer_disentangle_alpha: 0.05
+mac_disentangle_alpha: 0.05
+mac_cmi_entropy_alpha: 0.01
+mac_cmi_kl_alpha: 0.01
+
+name: "entity_opt"

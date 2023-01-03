@@ -30,14 +30,14 @@ Please follow the instructions below to replicate the results in the paper.
 
 #### SMAC (Single-Task)
 ```bash
-python src/main.py --config=token_opt --env-config=sc2 with env_args.map_name=[map_name] epsilon_anneal_time=[50000 / 500000] optimizer=['rmsprop' / 'adam']
+python src/main.py --config=token_opt --env-config=sc2 with env_args.map_name=[map_name] t_max=[2050000 / 4050000] epsilon_anneal_time=[50000 / 500000] optimizer=['rmsprop' / 'adam']
 # map_name:
-# 10m_vs_11m (epsilon_anneal_time=50000 optimizer='rmsprop')
-# 5m_vs_6m (epsilon_anneal_time=50000 optimizer='rmsprop')
-# MMM2 (epsilon_anneal_time=500000 optimizer='rmsprop')
-# corridor (epsilon_anneal_time=500000 optimizer='adam')
-# 6h_vs_8z (epsilon_anneal_time=500000 optimizer='adam')
-# 3s5z_vs_3s6z (epsilon_anneal_time=500000 optimizer='rmsprop')
+# 10m_vs_11m (t_max=2050000 epsilon_anneal_time=50000 optimizer='rmsprop')
+# 5m_vs_6m (t_max=2050000 epsilon_anneal_time=50000 optimizer='rmsprop')
+# MMM2 (t_max=2050000 epsilon_anneal_time=500000 optimizer='rmsprop')
+# corridor (t_max=2050000 epsilon_anneal_time=500000 optimizer='adam')
+# 6h_vs_8z (t_max=4050000 epsilon_anneal_time=500000 optimizer='adam')
+# 3s5z_vs_3s6z (t_max=4050000 epsilon_anneal_time=500000 optimizer='rmsprop')
 ```
 
 #### SMAC (Multi-Task)

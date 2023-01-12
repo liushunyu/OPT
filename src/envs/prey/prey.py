@@ -439,9 +439,9 @@ class PreyEnv(MultiAgentEnv):
 
     def get_env_info(self):
         env_info = super().get_env_info()
-        env_info["n_fixed_actions"] = self.get_total_actions()
         env_info["n_agents"] = self.n_agents
-        env_info["n_enemies"] = 0
+        env_info["n_fixed_actions"] = self.get_total_actions()
+        env_info["n_mutual_actions"] = 0
         if self.entity_scheme:
             env_info["n_agents"] = self.max_n_agents
             env_info["n_entities"] = self.max_n_agents + self.max_n_preys + self.max_n_landmarks

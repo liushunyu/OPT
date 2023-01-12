@@ -38,7 +38,6 @@ class EntityOPTAgent(nn.Module):
         for i in range(s):
             out = self.transformer(x[:, i], h_in.reshape(b, self.args.n_agents, self.args.rnn_hidden_dim), obs_mask[:, i])[:, :self.args.n_agents]
             out = out.masked_fill(agent_mask[:, i].unsqueeze(2), 0)
-
             out = F.relu(self.fc1(out))
 
             h_in = self.rnn(out.reshape(-1, self.args.rnn_hidden_dim), h_in)

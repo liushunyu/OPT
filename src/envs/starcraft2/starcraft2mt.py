@@ -1981,12 +1981,14 @@ class StarCraft2MTEnv(MultiAgentEnv):
         env_info["agent_features"] = self.ally_state_attr_names
         env_info["enemy_features"] = self.enemy_state_attr_names
         env_info["n_agents"] = self.n_agents
-        env_info["n_enemies"] = self.n_enemies
-        if self.entity_scheme:
-            env_info["n_agents"] = self.max_n_agents
-            env_info["n_enemies"] = self.max_n_agents
-            env_info["n_entities"] = self.max_n_agents + self.max_n_enemies
-            env_info["entity_shape"] = self.get_entity_size()
+
         if self.action_tag_attack:
             env_info["n_fixed_actions"] = self.get_total_actions()
+            env_info["n_mutual_actions"] = 0
+            
+        if self.entity_scheme:
+            env_info["n_agents"] = self.max_n_agents
+            env_info["n_entities"] = self.max_n_agents + self.max_n_enemies
+            env_info["entity_shape"] = self.get_entity_size()
+        
         return env_info

@@ -63,7 +63,6 @@ class MultiHeadTokenOPTAttention(nn.Module):
         self.cmi_attn_select = []
         self.cmi_attn_latent = []
         self.use_pattern = use_pattern
-        # torch.cuda.empty_cache()
 
     def forward(self, x, h, mask=None):
         b, t, e = x.size()
@@ -84,8 +83,10 @@ class MultiHeadTokenOPTAttention(nn.Module):
 
         out = out.view(n_heads, b, t, e)
         out = out.permute(1, 2, 0, 3).contiguous()
+
         if self.use_pattern:
             self.disentangle_x.append(out.view(b * t, n_heads, e))
+
         out = out.view(b, t, n_heads, e)
 
         attn_select = self.fc_select(torch.mean(x, dim=1))
@@ -121,6 +122,7 @@ class MultiHeadTokenOPTAttention(nn.Module):
         distribution_latent = Categorical(probs=attn_latent)
         entropy_loss = distribution_select.entropy()
         kl_loss = kl_divergence(distribution_select, distribution_latent)
+
         return entropy_loss, kl_loss
 
 

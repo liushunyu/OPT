@@ -1873,7 +1873,8 @@ class StarCraft2Env(MultiAgentEnv):
         env_info["agent_features"] = self.ally_state_attr_names
         env_info["enemy_features"] = self.enemy_state_attr_names
         env_info["n_agents"] = self.n_agents
-        env_info["n_enemies"] = self.n_enemies
+        env_info["n_fixed_actions"] = self.n_actions_no_attack
+        env_info["n_mutual_actions"] = self.n_enemies
 
         if self.obs_align:
             env_info["n_tokens"] = self.n_agents + self.n_enemies
@@ -1885,5 +1886,4 @@ class StarCraft2Env(MultiAgentEnv):
             env_info["state_token_shape"] = int(self.get_state_size() / (self.n_agents + self.n_enemies))
             env_info["state_mask_bit"] = 0
 
-        env_info["n_fixed_actions"] = self.n_actions_no_attack
         return env_info

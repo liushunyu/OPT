@@ -69,7 +69,9 @@ class MultiHeadOPTAttention(nn.Module):
 
         out = out.view(n_heads, b, t, e)
         out = out.permute(1, 2, 0, 3).contiguous()
+
         self.disentangle_x = out.view(b * t, n_heads, e)
+        
         out = out.view(b, t, n_heads, e)
 
         attn_select = self.fc_select(torch.mean(x, dim=1))

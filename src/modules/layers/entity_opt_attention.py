@@ -83,8 +83,10 @@ class MultiHeadEntityOPTAttention(nn.Module):
 
         out = out.view(n_heads, b, t, e)
         out = out.permute(1, 2, 0, 3).contiguous()
+
         if self.use_pattern:
             self.disentangle_x.append(out.view(b * t, n_heads, e))
+
         out_agent = out.view(b, t, n_heads, e)[:, :n_agents]
         out_other = out.view(b, t, n_heads, e)[:, n_agents:]
 
@@ -126,6 +128,7 @@ class MultiHeadEntityOPTAttention(nn.Module):
         distribution_latent = Categorical(probs=attn_latent)
         entropy_loss = distribution_select.entropy()
         kl_loss = kl_divergence(distribution_select, distribution_latent)
+        
         return entropy_loss, kl_loss
 
 

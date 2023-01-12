@@ -27,15 +27,15 @@ class TokenOPTAgent(nn.Module):
 
         x = F.relu(self.token_embedding(x))
         x = self.transformer.forward(x, hidden_state.reshape(-1, t, self.args.rnn_hidden_dim), mask)
-
         x = F.relu(self.fc1(x)).reshape(-1, self.args.rnn_hidden_dim)
+        
         h_in = hidden_state.reshape(-1, self.args.rnn_hidden_dim)
         h = self.rnn(x, h_in).reshape(b, t, self.args.rnn_hidden_dim)
 
         q_self_actions = self.fc2(h[:, 0, :])
 
         q = q_self_actions
-        q_mutual_actions = self.fc2(h[:, 1:self.args.n_enemies + 1, :]).mean(2)
+        q_mutual_actions = self.fc2(h[:, 1:self.args.n_mutual_actions + 1, :]).mean(2)
         q = torch.cat((q, q_mutual_actions), 1)
 
         return q, h

@@ -82,9 +82,9 @@ def run_sequential(args, logger):
     env_info = runner.get_env_info()
     args.episode_limit = env_info["episode_limit"]
     args.n_agents = env_info["n_agents"]
-    args.n_enemies = env_info["n_enemies"]
     args.n_actions = env_info["n_actions"]
     args.n_fixed_actions = env_info["n_fixed_actions"]
+    args.n_mutual_actions = env_info["n_mutual_actions"]
 
     if args.use_token:
         args.n_tokens = env_info["n_tokens"]

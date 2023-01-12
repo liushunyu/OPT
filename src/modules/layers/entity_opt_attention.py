@@ -85,8 +85,8 @@ class MultiHeadEntityOPTAttention(nn.Module):
         out = out.permute(1, 2, 0, 3).contiguous()
         if self.use_pattern:
             self.disentangle_x.append(out.view(b * t, n_heads, e))
-        out_ally = out.view(b, t, n_heads, e)[:, :n_agents]
-        out_enemy = out.view(b, t, n_heads, e)[:, n_agents:]
+        out_agent = out.view(b, t, n_heads, e)[:, :n_agents]
+        out_other = out.view(b, t, n_heads, e)[:, n_agents:]
 
         if mask is not None:
             x = torch.bmm((~mask[:b]).float()[:, :n_agents], x)
@@ -101,10 +101,10 @@ class MultiHeadEntityOPTAttention(nn.Module):
             self.cmi_attn_latent.append(attn_latent.view(b * n_agents, n_heads))
 
         attn_select = attn_select.view(b, n_agents, 1, n_heads)
-        out_ally = torch.matmul(attn_select, out_ally)
-        out_ally = out_ally.squeeze(2)
-        out_enemy = torch.mean(out_enemy, dim=2)
-        out = torch.cat([out_ally, out_enemy], dim=1)
+        out_agent = torch.matmul(attn_select, out_agent)
+        out_agent = out_agent.squeeze(2)
+        out_other = torch.mean(out_other, dim=2)
+        out = torch.cat([out_agent, out_other], dim=1)
 
         out = self.dropout_attn_out(out)
 

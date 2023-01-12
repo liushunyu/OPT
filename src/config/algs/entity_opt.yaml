@@ -21,22 +21,23 @@ learner: "entity_opt_q_learner"
 optimizer: 'rmsprop'
 double_q: True
 
+# --- Mixer parameters ---
 mixer: "entity_opt_qmix"
-mix_emb_dim: 32 # embedding dimension of transformer
-mix_n_heads: 4 # head number of transformer
-mix_n_blocks: 2 # block number of transformer
+mix_emb_dim: 32
+mix_n_heads: 4
+mix_n_blocks: 2
 scale_q: True
 
 # --- Agent parameters ---
 agent: "entity_opt_agent"
-rnn_hidden_dim: 64 # Size of hidden state for default rnn agent
-obs_agent_id: False # Include the agent's one_hot id in the observation
-obs_last_action: False # Include the agent's last action (one_hot) in the observation
+emb_dim: 32
+n_heads: 4
+n_blocks: 2
+rnn_hidden_dim: 64
+obs_agent_id: False
+obs_last_action: False
 
-# --- Transformer parameters. Should be set manually. ---
-emb_dim: 32 # embedding dimension of transformer
-n_heads: 4 # head number of transformer
-n_blocks: 2 # block number of transformer
+# --- OPT parameters ---
 mixer_disentangle_alpha: 0.05
 mac_disentangle_alpha: 0.05
 mac_cmi_entropy_alpha: 0.01

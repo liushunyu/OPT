@@ -53,7 +53,7 @@ python src/main.py --config=entity_opt --env-config=sc2mt with env_args.map_name
 # 5-11sz_symmetric
 ```
 
-#### Predator-Prey (Multi-Task)
+#### Predator-Prey (Multi-Task Training & Zero-Shot Test)
 
 ```bash
 python src/main.py --config=entity_opt --env-config=prey with env_args.map_name=[map_name] 

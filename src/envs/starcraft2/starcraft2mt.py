@@ -111,7 +111,7 @@ class StarCraft2MTEnv(MultiAgentEnv):
 
     def __init__(
             self,
-            map_name='3-8m_symmetric',
+            map_name='3-8sz_symmetric',
             step_mul=8,
             move_amount=2,
             difficulty="7",

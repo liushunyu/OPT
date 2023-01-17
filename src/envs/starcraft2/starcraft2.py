@@ -95,10 +95,10 @@ class StarCraft2Env(MultiAgentEnv):
             window_size_y=1200,
             heuristic_ai=False,
             heuristic_rest=False,
-            state_align=False,
-            obs_align=False,
-            unit_type_align=False,
-            shield_align=False,
+            state_align=True,
+            obs_align=True,
+            unit_type_align=True,
+            shield_align=True,
             debug=False,
     ):
         """

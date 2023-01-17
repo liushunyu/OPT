@@ -105,8 +105,8 @@ class Direction(enum.IntEnum):
 
 
 class StarCraft2MTEnv(MultiAgentEnv):
-    """The StarCraft II environment for decentralised multi-agent
-    micromanagement scenarios.
+    """The StarCraft II multi-task environment (refer to REFIL)
+    https://github.com/shariqiqbal2810/REFIL/blob/master/src/envs/starcraft2/starcraft2custom.py
     """
 
     def __init__(

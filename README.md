@@ -1,10 +1,21 @@
 # Interaction Pattern Disentangling for Multi-Agent Reinforcement Learning
 
+[![License: Apache](https://img.shields.io/badge/License-Apache-blue.svg)](LICENSE)
+[![arXiv](https://img.shields.io/badge/arXiv-2207.03902-b31b1b.svg)](https://arxiv.org/abs/2207.03902)
+
 Official codebase for paper [Interaction Pattern Disentangling for Multi-Agent Reinforcement Learning](https://arxiv.org/abs/2207.03902). This codebase is based on the open-source [PyMARL](https://github.com/oxwhirl/pymarl) framework and please refer to that repo for more documentation.
 
 
+## Overview
 
-## 1. Prerequisites
+**TLDR:** The first work identifies the entangled interaction problem in MARL, and introduce the interaction pattern disentangling task for cooperative MARL, a highly important ingredient for generalization yet largely overlooked by existing literature. Moreover, We propose OPT, a novel disentangling method to decompose entity interactions into interaction prototypes. OPT not only enjoys stronger generalizability, but also exhibits higher interpretability with the disentangled interaction prototypes.
+
+**Abstract:** Deep cooperative multi-agent reinforcement learning has demonstrated its remarkable success over a wide spectrum of complex control tasks. However, recent advances in multi-agent learning mainly focus on value decomposition while leaving entity interactions still intertwined, which easily leads to over-fitting on noisy interactions between entities. In this work, we introduce a novel interactiOn Pattern disenTangling (OPT) method, to disentangle not only the joint value function into agent-wise value functions for decentralized execution, but also the entity interactions into interaction prototypes, each of which represents an underlying interaction pattern within a subgroup of the entities. OPT facilitates filtering the noisy interactions between irrelevant entities and thus significantly improves generalizability as well as interpretability. Specifically, OPT introduces a sparse disagreement mechanism to encourage sparsity and diversity among discovered interaction prototypes. Then the model selectively restructures these prototypes into a compact interaction pattern by an aggregator with learnable weights. To alleviate the training instability issue caused by partial observability, we propose to maximize the mutual information between the aggregation weights and the history behaviors of each agent. Experiments on both single-task and multi-task benchmarks demonstrate that the proposed method yields results superior to the state-of-the-art counterparts.
+
+
+![image](https://github.com/liushunyu/OPT/blob/main/framework.png)
+
+## Prerequisites
 
 #### Install dependencies
 
@@ -24,7 +35,7 @@ The SMAC maps used for all experiments is in `OPT/src/envs/starcraft2/maps/SMAC_
 
 
 
-## 2. Usage
+## Usage
 
 Please follow the instructions below to replicate the results in the paper.
 
@@ -65,7 +76,7 @@ python src/main.py --config=entity_opt --env-config=prey with env_args.map_name=
 
 
 
-## 3. Citation
+## Citation
 
 If you find this work useful for your research, please cite our paper:
 
@@ -77,3 +88,7 @@ If you find this work useful for your research, please cite our paper:
   year={2022}
 }
 ```
+
+## Contact
+
+Please feel free to contact me via email (<liushunyu@zju.edu.cn>) if you are interested in my research :)

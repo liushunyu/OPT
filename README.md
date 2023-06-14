@@ -7,7 +7,7 @@ Official codebase for paper [Interaction Pattern Disentangling for Multi-Agent R
 
 <div align="center">
 <img src="https://github.com/liushunyu/OPT/blob/main/introduction.png" width="50%">
-<\div>
+</div>
 
 ## Overview
 

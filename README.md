@@ -63,6 +63,8 @@ python src/main.py --config=token_opt --env-config=sc2 with env_args.map_name=6h
 python src/main.py --config=token_opt --env-config=sc2 with env_args.map_name=3s5z_vs_3s6z t_max=4050000 epsilon_anneal_time=500000 optimizer='rmsprop'
 ```
 
+![image](https://github.com/liushunyu/OPT/blob/main/exp-smac-single.png)
+
 #### SMAC (Multi-Task)
 
 ```bash
@@ -85,6 +87,8 @@ python src/main.py --config=entity_opt --env-config=sc2mt with env_args.map_name
 python src/main.py --config=entity_opt --env-config=sc2mt with env_args.map_name=5-11sz_symmetric
 ```
 
+![image](https://github.com/liushunyu/OPT/blob/main/exp-smac-multi.png)
+
 #### Predator-Prey (Multi-Task Training & Zero-Shot Test)
 
 ```bash
@@ -98,6 +102,7 @@ python src/main.py --config=entity_opt --env-config=prey with env_args.map_name=
 python src/main.py --config=entity_opt --env-config=prey with env_args.map_name=various_all
 ```
 
+![image](https://github.com/liushunyu/OPT/blob/main/exp-pp.png)
 
 
 ## Citation

@@ -44,37 +44,58 @@ Please follow the instructions below to replicate the results in the paper.
 
 #### SMAC (Single-Task)
 ```bash
-python src/main.py --config=token_opt --env-config=sc2 with env_args.map_name=[map_name] t_max=[2050000 / 4050000] epsilon_anneal_time=[50000 / 500000] optimizer=['rmsprop' / 'adam']
-# map_name:
-# 10m_vs_11m (t_max=2050000 epsilon_anneal_time=50000 optimizer='rmsprop')
-# 5m_vs_6m (t_max=2050000 epsilon_anneal_time=50000 optimizer='rmsprop')
-# MMM2 (t_max=2050000 epsilon_anneal_time=500000 optimizer='rmsprop')
-# corridor (t_max=2050000 epsilon_anneal_time=500000 optimizer='adam')
-# 6h_vs_8z (t_max=4050000 epsilon_anneal_time=500000 optimizer='adam')
-# 3s5z_vs_3s6z (t_max=4050000 epsilon_anneal_time=500000 optimizer='rmsprop')
+# 10m_vs_11m
+python src/main.py --config=token_opt --env-config=sc2 with env_args.map_name=10m_vs_11m t_max=2050000 epsilon_anneal_time=50000 optimizer='rmsprop'
+
+# 5m_vs_6m
+python src/main.py --config=token_opt --env-config=sc2 with env_args.map_name=5m_vs_6m t_max=2050000 epsilon_anneal_time=50000 optimizer='rmsprop'
+
+# MMM2
+python src/main.py --config=token_opt --env-config=sc2 with env_args.map_name=MMM2 t_max=2050000 epsilon_anneal_time=500000 optimizer='rmsprop'
+
+# corridor
+python src/main.py --config=token_opt --env-config=sc2 with env_args.map_name=corridor t_max=2050000 epsilon_anneal_time=500000 optimizer='adam'
+
+# 6h_vs_8z
+python src/main.py --config=token_opt --env-config=sc2 with env_args.map_name=6h_vs_8z t_max=4050000 epsilon_anneal_time=500000 optimizer='adam'
+
+# 3s5z_vs_3s6z
+python src/main.py --config=token_opt --env-config=sc2 with env_args.map_name=3s5z_vs_3s6z t_max=4050000 epsilon_anneal_time=500000 optimizer='rmsprop'
 ```
 
 #### SMAC (Multi-Task)
 
 ```bash
-python src/main.py --config=entity_opt --env-config=sc2mt with env_args.map_name=[map_name] 
-# map_name:
 # 3-8csz_symmetric
+python src/main.py --config=entity_opt --env-config=sc2mt with env_args.map_name=3-8csz_symmetric
+
 # 3-8MMM_symmetric
+python src/main.py --config=entity_opt --env-config=sc2mt with env_args.map_name=3-8MMM_symmetric
+
 # 3-8sz_symmetric
+python src/main.py --config=entity_opt --env-config=sc2mt with env_args.map_name=3-8sz_symmetric
+
 # 5-11csz_symmetric
+python src/main.py --config=entity_opt --env-config=sc2mt with env_args.map_name=5-11csz_symmetric
+
 # 5-11MMM_symmetric
+python src/main.py --config=entity_opt --env-config=sc2mt with env_args.map_name=5-11MMM_symmetric
+
 # 5-11sz_symmetric
+python src/main.py --config=entity_opt --env-config=sc2mt with env_args.map_name=5-11sz_symmetric
 ```
 
 #### Predator-Prey (Multi-Task Training & Zero-Shot Test)
 
 ```bash
-python src/main.py --config=entity_opt --env-config=prey with env_args.map_name=[map_name] 
-# map_name:
 # various_cap
+python src/main.py --config=entity_opt --env-config=prey with env_args.map_name=various_cap
+
 # various_num
+python src/main.py --config=entity_opt --env-config=prey with env_args.map_name=various_num
+
 # various_all
+python src/main.py --config=entity_opt --env-config=prey with env_args.map_name=various_all
 ```
 
 

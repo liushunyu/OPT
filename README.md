@@ -5,6 +5,8 @@
 
 Official codebase for paper [Interaction Pattern Disentangling for Multi-Agent Reinforcement Learning](https://arxiv.org/abs/2207.03902). This codebase is based on the open-source [PyMARL](https://github.com/oxwhirl/pymarl) framework and please refer to that repo for more documentation.
 
+<img src="https://github.com/liushunyu/OPT/blob/main/introduction.png" width="50%">
+
 
 ## Overview
 

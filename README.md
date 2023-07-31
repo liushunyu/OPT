@@ -22,7 +22,7 @@ Official codebase for paper [Interaction Pattern Disentangling for Multi-Agent R
 
 #### Install dependencies
 
-See `requirment.txt` file for more information about how to install the dependencies.
+See `requirments.txt` file for more information about how to install the dependencies.
 
 #### Install StarCraft II
 

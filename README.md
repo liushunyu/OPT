@@ -1,4 +1,4 @@
-# Interaction Pattern Disentangling for Multi-Agent Reinforcement Learning
+# [TPAMI] Interaction Pattern Disentangling for Multi-Agent Reinforcement Learning
 
 [![License: Apache](https://img.shields.io/badge/License-Apache-blue.svg)](LICENSE)
 [![arXiv](https://img.shields.io/badge/arXiv-2207.03902-b31b1b.svg)](https://arxiv.org/abs/2207.03902)
@@ -110,11 +110,14 @@ python src/main.py --config=entity_opt --env-config=prey with env_args.map_name=
 If you find this work useful for your research, please cite our paper:
 
 ```
-@article{liu2022OPT,
-  title={Interaction Pattern Disentangling for Multi-Agent Reinforcement Learning},
+@article{liu2024OPT,
   author={Liu, Shunyu and Song, Jie and Zhou, Yihe and Yu, Na and Chen, Kaixuan and Feng, Zunlei and Song, Mingli},
-  journal={arXiv preprint arXiv:2207.03902},
-  year={2022}
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={Interaction Pattern Disentangling for Multi-Agent Reinforcement Learning}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-15},
 }
 ```
 
